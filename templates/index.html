@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Welcome to Rock-Paper-Scissors Game</h1>
+            <form method="POST" action="{{ url_for('game') }}">
+                <div class="form-group">
+                    <label for="username">Enter your name:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="rounds">How many rounds do you want to play? (Max 10):</label>
+                    <input type="number" id="rounds" name="rounds" min="1" max="10" required>
+                </div>
+                <button type="submit">Start Game</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

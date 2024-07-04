@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Game Over</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Round</th>
+                        <th>{{ session['username'] }} Chose</th>
+                        <th>Computer Chose</th>
+                        <th>Winner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ result.user_choice }}</td>
+                        <td>{{ result.computer_choice }}</td>
+                        <td>{{ result.winner }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Final Scores</h2>
+            <p>{{ session['username'] }}: {{ user_score }}</p>
+            <p>Computer: {{ computer_score }}</p>
+            <h1>Overall Winner: {{ overall_winner }}</h1>
+            <button onclick="location.href='{{ url_for('play_round') }}'">Replay</button>
+            <button onclick="location.href='{{ url_for('game') }}'">Exit</button>
+        </div>
+    </div>
+</body>
+</html>

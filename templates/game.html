@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card game-card">
+            <h1>Round {{ round }} of {{ rounds }}</h1>
+            <form method="POST" action="{{ url_for('play_round') }}">
+                <div class="choices">
+                    <button type="button" class="choice" data-choice="rock">
+                        <img src="{{ url_for('static', filename='rock.jpg') }}" alt="Rock">
+                    </button>
+                    <button type="button" class="choice" data-choice="paper">
+                        <img src="{{ url_for('static', filename='paper.jpg') }}" alt="Paper">
+                    </button>
+                    <button type="button" class="choice" data-choice="scissors">
+                        <img src="{{ url_for('static', filename='scissors.jpg') }}" alt="Scissors">
+                    </button>
+                </div>
+                <input type="hidden" name="choice" id="user-choice">
+                <button type="submit" id="play-button">Play</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
