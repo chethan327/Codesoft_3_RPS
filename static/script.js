@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    
     function confirmClose() {
         if (confirm('Are you sure you want to exit?')) {
             window.close();

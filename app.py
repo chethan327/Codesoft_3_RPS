@@ -48,7 +48,6 @@ def play_round():
     
     return render_template('game.html', round=session['current_round'], rounds=session['rounds'])
 
-
 @app.route('/result')
 def result():
     user_score = session.get('user_score', 0)
